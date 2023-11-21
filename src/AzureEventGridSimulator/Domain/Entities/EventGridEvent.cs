@@ -108,9 +108,9 @@ public class EventGridEvent
                 InvalidOperationException($"Property '{nameof(MetadataVersion)}' was found to be set to '{MetadataVersion}', but was expected to either be null or be set to 1.");
         }
 
-        if (!string.IsNullOrEmpty(Topic))
+        if (string.IsNullOrEmpty(Topic))
         {
-            throw new InvalidOperationException($"Property '{nameof(Topic)}' was found to be set to '{Topic}', but was expected to either be null/empty.");
+            throw new InvalidOperationException($"Property '{nameof(Topic)}' was found to be null/empty, but was expected to not be null/empty.");
         }
     }
 }
